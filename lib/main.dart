@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:ir_sensor_plugin/ir_sensor_plugin.dart';
 import 'package:remote_ir/constants.dart' as Constants;
 import 'package:remote_ir/globals.dart' as Globals;
+import 'package:remote_ir/ip_settings_Screen.dart';
+import 'package:remote_ir/lpr_dashboard_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -68,6 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
       platformVersion = await IrSensorPlugin.platformVersion;
       hasIrEmitter = await IrSensorPlugin.hasIrEmitter;
       getCarrierFrequencies = await IrSensorPlugin.getCarrierFrequencies;
+
+      /*
+      platformVersion = "";
+      hasIrEmitter = false;
+      getCarrierFrequencies = "";
+      */
       final String result = await IrSensorPlugin.setFrequencies(38000);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('hasIREmitter: ' + hasIrEmitter.toString() + "\n"),
@@ -99,6 +107,45 @@ class _MyHomePageState extends State<MyHomePage> {
     txtCtrl.text = ""; // for final version.
     initPlatformState();
     return Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                ),
+                child: Text("Functions"),
+              ),
+              ListTile(
+                leading: const Icon(Icons.add_shopping_cart),
+                title: Text("مين بالأرض"),
+                onTap: () {
+                  Navigator.pop(context); // Close drawer
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LPRDashboardScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.add_shopping_cart),
+                title: Text("Server Settings"),
+                onTap: () {
+                  Navigator.pop(context); // Close drawer
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const IpSettingsScreen(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
             title: Transform(
                 alignment: Alignment.center,

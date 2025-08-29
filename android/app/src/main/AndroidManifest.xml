@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.remote_ir">
     <uses-permission android:name="android.permission.TRANSMIT_IR" />
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="ظهير المُغر"
         android:icon="@mipmap/branch_icon_launcher">
