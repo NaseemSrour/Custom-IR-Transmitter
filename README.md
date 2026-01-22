@@ -1,5 +1,5 @@
 In a nutshell:
-My own custom offline IR Blaster app for phones with an IR transmitter sensor. To be used as an on-the-field remote control (offline, no need for internet connection).
+My own custom offline Infrared (IR) Blaster app for phones with an IR transmitter sensor. To be used as an on-the-field remote control (offline, no need for internet connection).
 
 'IR Sketch' file is the Arduino sketch that is used to capture and save the IR codes from their original remote controls. Saving them in the attached Excel file.
 
@@ -31,7 +31,7 @@ The Flutter app reads the stored IR codes and sends them via the phone’s IR tr
 
 ## ✨ Features
 
-- Control devices via phone's built-in IR blaster
+- Control devices via phone's built-in IR transmitter
 - No internet, ads, or bloat — completely offline
 - Easy to update IR codes (just paste them into the Dart code or load from a local file)
 - Simple, minimal UI tailored for speed and usability
